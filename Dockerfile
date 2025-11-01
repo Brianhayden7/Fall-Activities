@@ -38,6 +38,9 @@ RUN npm install -g serve
 # Copy built files from builder
 COPY --from=builder /app/dist ./dist
 
+# Copy serve configuration
+COPY serve.json ./serve.json
+
 # Set correct permissions
 RUN chown -R viteapp:nodejs /app
 
@@ -48,5 +51,5 @@ EXPOSE 80
 ENV PORT 80
 ENV HOSTNAME "0.0.0.0"
 
-# Serve the static files on port 80
-CMD ["serve", "-s", "dist", "-l", "80"]
+# Serve the static files on port 80 with CORS and proxy support
+CMD ["serve", "-s", "dist", "-l", "80", "--no-clipboard", "--no-port-switching"]
