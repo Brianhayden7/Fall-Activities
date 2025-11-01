@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Leaf, MapPin, Star, ArrowRight } from 'lucide-react';
+import { Search, Leaf, MapPin } from 'lucide-react';
 import { fallActivities } from './data/activities';
 
 function App() {
@@ -85,13 +85,7 @@ function App() {
                   }}
                 />
                 <div className="p-6">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-xl font-bold">{activity.title}</h3>
-                    <div className="flex items-center bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm">
-                      <Star className="w-4 h-4 mr-1 fill-current" />
-                      {activity.rating}
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-bold mb-2">{activity.title}</h3>
                   
                   <div className="flex items-center text-gray-600 text-sm mb-3">
                     <MapPin className="w-4 h-4 mr-1" />
@@ -100,17 +94,13 @@ function App() {
                   
                   <p className="text-gray-700 mb-4">{activity.description}</p>
                   
-                  <div className="flex flex-wrap mb-4">
+                  <div className="flex flex-wrap">
                     {activity.tags.map((tag) => (
                       <span key={tag} className="activity-tag">
                         {tag.replace('-', ' ')}
                       </span>
                     ))}
                   </div>
-                  
-                  <button className="btn btn-primary flex items-center">
-                    View Details <ArrowRight className="ml-2 w-4 h-4" />
-                  </button>
                 </div>
               </div>
             ))}
