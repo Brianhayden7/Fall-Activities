@@ -1,58 +1,78 @@
+@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  body {
-    @apply bg-amber-50 text-gray-800 min-h-screen;
-  }
+@theme {
+  --color-pumpkin: #E67E22;
+  --color-squash: #D35400;
+  --color-leaf: #8B9E3E;
+  --color-acorn: #8B5A2B;
+  --color-cider: #B86F2C;
   
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold;
-  }
-  
-  a {
-    @apply text-pumpkin hover:text-squash transition-colors duration-200;
-  }
+  --font-family-sans: 'Poppins', sans-serif;
+  --font-family-serif: 'Playfair Display', serif;
 }
 
-@layer components {
-  .btn {
-    @apply px-4 py-2 rounded-lg font-medium transition-colors duration-200;
-  }
-  
-  .btn-primary {
-    @apply bg-pumpkin text-white hover:bg-squash;
-  }
-  
-  .activity-card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
-  }
-  
-  .activity-tag {
-    @apply inline-block px-2 py-1 text-xs font-medium rounded-full bg-amber-100 text-amber-800 mr-2 mb-2;
-  }
-  
-  .container {
-    @apply px-4 mx-auto max-w-7xl sm:px-6 lg:px-8;
-  }
+body {
+  background-color: rgb(255 251 235);
+  color: rgb(31 41 55);
+  min-height: 100vh;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+}
+
+a {
+  color: var(--color-pumpkin);
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--color-squash);
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: colors 0.2s;
+}
+
+.btn-primary {
+  background-color: var(--color-pumpkin);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-squash);
+}
+
+.activity-card {
+  background-color: white;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+}
+
+.activity-card:hover {
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+.activity-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background-color: rgb(254 243 199);
+  color: rgb(146 64 14);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

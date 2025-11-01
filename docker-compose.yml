@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  fall-activities:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: fall-activities
+    ports:
+      - "8085:80"
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    networks:
+      - fall-activities-network
+
+networks:
+  fall-activities-network:
+    driver: bridge
